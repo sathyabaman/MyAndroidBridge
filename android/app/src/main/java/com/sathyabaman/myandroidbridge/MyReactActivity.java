@@ -1,13 +1,13 @@
 package com.sathyabaman.myandroidbridge;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
-import com.facebook.react.LifecycleState;
+import com.facebook.react.BuildConfig;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
+import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 
@@ -24,12 +24,12 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
                 .setBundleAssetName("index.android.bundle")
-                .setJSMainModuleName("index.android")
+                .setJSMainModulePath("index")
                 .addPackage(new MainReactPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
-        mReactRootView.startReactApplication(mReactInstanceManager, "MyAndroidBridge", null);
+        mReactRootView.startReactApplication(mReactInstanceManager, "myandroidbridge", null);
 
         setContentView(mReactRootView);
     }
@@ -44,7 +44,7 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
         super.onPause();
 
         if (mReactInstanceManager != null) {
-            mReactInstanceManager.onPause();
+            mReactInstanceManager.onHostPause(this);
         }
     }
 
@@ -53,7 +53,7 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
         super.onResume();
 
         if (mReactInstanceManager != null) {
-            mReactInstanceManager.onResume(this, this);
+            mReactInstanceManager.onHostResume(this, this);
         }
     }
 
@@ -62,7 +62,7 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
         super.onDestroy();
 
         if (mReactInstanceManager != null) {
-            mReactInstanceManager.onDestroy();
+            mReactInstanceManager.onHostDestroy(this);
         }
     }
 

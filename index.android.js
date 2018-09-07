@@ -10,21 +10,23 @@ class HelloUser extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.hello}>Hey Welcome to MyAndroidBridge! How are you?</Text>
+        <Text style={styles.hello}>Hey Welcome to MyAndroidBridge! How are you.....?</Text>
       </View>
     )
   }
 }
 var styles = StyleSheet.create({
   container: {
+    backgroundColor: '#00aeef',
     flex: 1,
     justifyContent: 'center',
   },
   hello: {
     fontSize: 20,
     textAlign: 'center',
+    textColor: '#ef002b',
     margin: 10,
   },
 });
 
-AppRegistry.registerComponent('MyAndroidBridge', () => HelloUser);
+AppRegistry.registerComponent('myandroidbridge', () => HelloUser);
