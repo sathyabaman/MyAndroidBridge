@@ -10,7 +10,7 @@ class HelloUser extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.hello}>Hey Welcome to MyAndroidBridge! How are you.....?</Text>
+        <Text style={styles.hello}>Hey Welcome to MyAndroidBridge! This is a javascript ReactNative Page..</Text>
       </View>
     )
   }

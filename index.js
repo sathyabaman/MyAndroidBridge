@@ -1,7 +1,39 @@
-import {AppRegistry} from 'react-native';
-import App from './index.android.js';
-import {name as appName} from './app.json';
+// import {AppRegistry} from 'react-native';
+// import App from './index.android.js';
+// import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => App);
+// AppRegistry.registerComponent(appName, () => App);
 
 
+import React from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
+
+class HelloUser extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.hello}>Hey Welcome to MyAndroidBridge! This is a javascript ReactNative Page..</Text>
+      </View>
+    )
+  }
+}
+var styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#00aeef',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  hello: {
+    fontSize: 20,
+    textAlign: 'center',
+    textColor: '#ef002b',
+    margin: 10,
+  },
+});
+
+AppRegistry.registerComponent('myandroidbridge', () => HelloUser);
